@@ -8,9 +8,14 @@
  * getOdds([1, 2, 3, 4, 5, 6, 7, 8, 9]) -> [1, 3, 5, 7, 9]
  * getOdds([11, 35, 52, 14, 56, 601, 777, 888, 999]) -> [11, 35, 601, 777, 999]
  */
-function getOdds(numbers) {
-  // Your code here
+function getOdds(numbers){
+  const oddNumbers = numbers.filter(function(number){
+      return (number % 2 !== 0); 
+  });
+  return oddNumbers;
 }
+// console.log(getOdds([1, 2, 3, 4, 5, 6, 7, 8, 9]))
+
 
 /**
  * getEvens(numbers):
@@ -22,9 +27,13 @@ function getOdds(numbers) {
  * getEvens([1, 2, 3, 4, 5, 6, 7, 8, 9]) -> [2, 4, 6, 8]
  * getEvens([11, 35, 52, 14, 56, 601, 777, 888, 999]) -> [52, 14, 56, 888]
  */
-function getEvens(numbers) {
-  // Your code here
+function getEvens(numbers){
+  const evenNumbers = numbers.filter(function(number){
+      return (number % 2 === 0); 
+  });
+  return evenNumbers;
 }
+// console.log(getEvens([1, 2, 3, 4, 5, 6, 7, 8, 9]))
 
 /**
  * getDuplicateCount(x, numbers):
@@ -35,9 +44,16 @@ function getEvens(numbers) {
  * getDuplicateCount(1, [1, 2, 3, 1, 4, 5, 6, 1, 7, 8, 9, 10, 11, 1, 12, 13]) -> 4
  * getDuplicateCount(52, [11, 35, 52, 14, 56, 601, 52, 777, 888, 999, 52]) -> 3
  */
-function getDuplicateCount(x, numbers) {
-  // Your code here
+function getDuplicateCount(x, numbers){
+  let counter = 0;
+  numbers.forEach(function(number){
+      if (number === x){
+          counter++;
+      }
+  }); return counter;
 }
+
+// console.log(getDuplicateCount(1, [1, 2, 3, 1, 4, 5, 6, 1, 7, 8, 9, 10, 11, 1, 12, 13]));
 
 /**
  * makeThemDoctors(students):
@@ -48,8 +64,12 @@ function getDuplicateCount(x, numbers) {
  * makeThemDoctors(["Ali", "Aseel", "Richard"]) -> ["Dr. Ali", "Dr. Aseel", "Dr. Richard"]
  */
 
-function makeThemDoctors(students) {
-  // Your code here
+function makeThemDoctors(students){
+  const doctors = students.map(function(student){
+    return `Dr. ${student}`;
+  });
+  return doctors;
 }
+console.log(makeThemDoctors(["Ali", "Aseel", "Richard"]));
 
 module.exports = { getOdds, getEvens, getDuplicateCount, makeThemDoctors };
